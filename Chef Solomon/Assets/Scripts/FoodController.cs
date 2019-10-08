@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveRight : MonoBehaviour
+public class FoodController : MonoBehaviour
 {
+
+    public int scoreVal;
+    public int totalScore;
 
     private float speed = 10f;
     private bool outOfBounds;
+
+
     Vector3 xMovement = (Vector3.right);
 
     // Start is called before the first frame update
@@ -29,9 +34,16 @@ public class MoveRight : MonoBehaviour
 
     public void OutOfBounds()
     {
-        if(!outOfBounds && transform.position.x > 10)
+        if (!outOfBounds && transform.position.x > 10)
         {
             Destroy(gameObject);
         }
+    }
+
+    public int AddScore(int scoreVal)
+    {
+        totalScore = scoreVal;
+
+        return totalScore;
     }
 }
