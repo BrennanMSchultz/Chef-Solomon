@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
 
-    private float sliceSpeed;
-    private float moveSpeed;
+    public float sliceSpeed;
+    public float moveSpeed;
 
     private bool hasSliced;
     private bool hasPressed;
@@ -25,8 +26,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sliceSpeed = 200f;
-        moveSpeed = 50f;
+        //sliceSpeed = 200f;
+        //moveSpeed = 50f;
         hasSliced = false;
         hasPressed = false;
         originalPos = transform.position;
