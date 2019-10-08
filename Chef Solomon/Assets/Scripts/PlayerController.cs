@@ -6,22 +6,29 @@ public class PlayerController : MonoBehaviour
 {
 
     private float sliceSpeed;
+    private float moveSpeed;
 
     private bool hasSliced;
     private bool hasPressed;
 
     private Rigidbody playerRB;
 
+    private GameObject food;
+    private Renderer foodRenderer;
+    private Color Green = Color.green;
+
     private Vector3 originalPos;
 
     private void Awake()
     {
         playerRB = GetComponent<Rigidbody>();
+        food = GameObject.FindGameObjectWithTag("Food");
     }
     // Start is called before the first frame update
     void Start()
     {
         sliceSpeed = 200f;
+        moveSpeed = 50f;
         hasSliced = false;
         hasPressed = false;
         originalPos = transform.position;
@@ -31,6 +38,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Slice();
+        StopAtOriginalPosition();
     }
 
     public void Slice()
@@ -47,8 +55,20 @@ public class PlayerController : MonoBehaviour
     {
         if (hasSliced)
         {
-            transform.Translate(originalPos);
+            playerRB.AddForce(originalPos * moveSpeed);
+            //playerRB.MovePosition(originalPos);
+            //playerRB.transform.Translate(originalPos);
+            playerRB.velocity = Vector3.zero;
             hasPressed = false;
+        }
+    }
+
+    public void StopAtOriginalPosition()
+    {
+        if (playerRB.position.y >= 5)
+        {
+            playerRB.velocity = Vector3.zero;
+            Debug.Log("Has made it to original position");
         }
     }
 
@@ -60,5 +80,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    private void OnTriggerEnter(Collider c)
+    {
+        if(c.gameObject.CompareTag("Food"))
+        {
+            food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
+            Debug.Log("You hit the mark!!");
+        }
+    }
 }
