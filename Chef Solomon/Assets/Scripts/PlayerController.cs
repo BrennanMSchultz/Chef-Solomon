@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRB;
 
     private GameObject food;
-    private Renderer foodRenderer;
-    private Color Green = Color.green;
 
     private Vector3 originalPos;
 
