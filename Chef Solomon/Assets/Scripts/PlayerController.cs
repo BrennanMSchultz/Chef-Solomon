@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,14 +7,18 @@ public class PlayerController : MonoBehaviour
 {
     private GameManager gameManager;
 
-    private float sliceSpeed;
-    private float moveSpeed;
+    public float sliceSpeed;
+    public float moveSpeed;
 
     private FoodController foodController;
     private int foodValue;
 
     private bool hasSliced;
     private bool hasPressed;
+
+    public AudioClip miss;
+    public AudioClip hit;
+    AudioSource audioSource;
 
     private Rigidbody playerRB;
 
@@ -34,11 +39,12 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sliceSpeed = 200f;
-        moveSpeed = 50f;
+        //sliceSpeed = 200f;
+        //moveSpeed = 50f;
         hasSliced = false;
         hasPressed = false;
         originalPos = transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -83,6 +89,8 @@ public class PlayerController : MonoBehaviour
     {
         if (c.gameObject.CompareTag("Table"))
         {
+            audioSource.PlayOneShot(miss);
+            audioSource.pitch = audioSource.pitch - 0.1f;
             ReturnToPosition();
         }
     }
@@ -91,6 +99,9 @@ public class PlayerController : MonoBehaviour
     {
         if(c.gameObject.CompareTag("Food"))
         {
+            ReturnToPosition();
+            audioSource.PlayOneShot(hit);
+            audioSource.pitch = audioSource.pitch + 0.1f;
             food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
             Debug.Log("You hit the mark!!");
             gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
