@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     private bool hasSliced;
     private bool hasPressed;
 
+    public AudioClip miss;
+    public AudioClip hit;
+    AudioSource audioSource;
+
     private Rigidbody playerRB;
 
     private GameObject food;
@@ -31,6 +35,7 @@ public class PlayerController : MonoBehaviour
         hasSliced = false;
         hasPressed = false;
         originalPos = transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -75,6 +80,8 @@ public class PlayerController : MonoBehaviour
     {
         if (c.gameObject.CompareTag("Table"))
         {
+            audioSource.PlayOneShot(miss);
+            //tempo lowers
             ReturnToPosition();
         }
     }
@@ -83,6 +90,9 @@ public class PlayerController : MonoBehaviour
     {
         if(c.gameObject.CompareTag("Food"))
         {
+            ReturnToPosition();
+            audioSource.PlayOneShot(hit);
+            //tempo increases
             food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
             Debug.Log("You hit the mark!!");
         }
