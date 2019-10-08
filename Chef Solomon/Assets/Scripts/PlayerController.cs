@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private GameManager gameManager;
 
     private float sliceSpeed;
     private float moveSpeed;
+
+    private FoodController foodController;
+    private int foodValue;
 
     private bool hasSliced;
     private bool hasPressed;
@@ -21,6 +25,11 @@ public class PlayerController : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         food = GameObject.FindGameObjectWithTag("Food");
+
+        foodController = GameObject.FindGameObjectWithTag("Food").GetComponent<FoodController>();
+        foodValue = foodController.scoreVal;
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -84,6 +93,7 @@ public class PlayerController : MonoBehaviour
         {
             food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
             Debug.Log("You hit the mark!!");
+            gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
         }
     }
 }

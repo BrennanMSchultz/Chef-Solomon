@@ -9,13 +9,13 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
 
-    private FoodController foodController;
-    private int foodValue;
+    //private FoodController foodController;
+    //private int foodValue;
 
     private void Awake()
     {
-        foodController = GameObject.FindGameObjectWithTag("Food").GetComponent<FoodController>();
-        foodValue = foodController.scoreVal;
+        //foodController = GameObject.FindGameObjectWithTag("Food").GetComponent<FoodController>();
+       //foodValue = foodController.scoreVal;
     }
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         DebugFunctionality();
-        scoreText.text = "Score: " + foodController.AddScore(foodValue);
+       //scoreText.text = "Score: " + foodController.AddScore(foodValue);
     }
 
     public void DebugFunctionality()
