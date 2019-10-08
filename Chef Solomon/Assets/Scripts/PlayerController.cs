@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         if (c.gameObject.CompareTag("Table"))
         {
             audioSource.PlayOneShot(miss);
-            //tempo lowers
+            audioSource.pitch = audioSource.pitch - 0.1f;
             ReturnToPosition();
         }
     }
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         {
             ReturnToPosition();
             audioSource.PlayOneShot(hit);
-            //tempo increases
+            audioSource.pitch = audioSource.pitch + 0.1f;
             food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
             Debug.Log("You hit the mark!!");
         }
