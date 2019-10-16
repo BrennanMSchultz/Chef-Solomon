@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
             audioSource.pitch += 0.1f;
             food = GameObject.FindGameObjectWithTag("Food");
             food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
-            Debug.Log("You hit the mark!!");
+            //Debug.Log("You hit the mark!!");
             foodValue = foodController.totalScore;
             gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
         }
