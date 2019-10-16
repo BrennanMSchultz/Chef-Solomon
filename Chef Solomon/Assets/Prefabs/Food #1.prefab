@@ -105,3 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8718df30bb72c7241b21133cd636beb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreVal: 0
+  totalScore: 0
+  food: {fileID: 3174411360292946900}
+  speed: 10
+  timer: 0

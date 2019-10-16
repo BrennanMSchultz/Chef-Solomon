@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,13 +27,17 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 originalPos;
 
+    public int failNumber = 0;
+
+    public float noteSpeed = 1f;
+
     private void Awake()
     {
         playerRB = GetComponent<Rigidbody>();
         food = GameObject.FindGameObjectWithTag("Food");
 
         foodController = GameObject.FindGameObjectWithTag("Food").GetComponent<FoodController>();
-        foodValue = foodController.scoreVal;
+        foodValue = foodController.totalScore;
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -52,6 +57,11 @@ public class PlayerController : MonoBehaviour
     {
         Slice();
         StopAtOriginalPosition();
+
+        if (failNumber == 3)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void Slice()
@@ -81,7 +91,7 @@ public class PlayerController : MonoBehaviour
         if (playerRB.position.y >= 5)
         {
             playerRB.velocity = Vector3.zero;
-            Debug.Log("Has made it to original position");
+            //Debug.Log("Has made it to original position");
         }
     }
 
@@ -90,8 +100,12 @@ public class PlayerController : MonoBehaviour
         if (c.gameObject.CompareTag("Table"))
         {
             audioSource.PlayOneShot(miss);
-            audioSource.pitch = audioSource.pitch - 0.1f;
+            audioSource.pitch -= 0.1f;
             ReturnToPosition();
+            failNumber ++;
+            noteSpeed -= 0.1f;
+            foodValue = foodController.totalScore;
+            gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
         }
     }
 
@@ -100,10 +114,14 @@ public class PlayerController : MonoBehaviour
         if(c.gameObject.CompareTag("Food"))
         {
             ReturnToPosition();
+            failNumber = 0;
+            noteSpeed += 0.1f;
             audioSource.PlayOneShot(hit);
-            audioSource.pitch = audioSource.pitch + 0.1f;
+            audioSource.pitch += 0.1f;
+            food = GameObject.FindGameObjectWithTag("Food");
             food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
             Debug.Log("You hit the mark!!");
+            foodValue = foodController.totalScore;
             gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
         }
     }

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 54659675}
   m_Layer: 0
   m_Name: Cleaver
-  m_TagString: Untagged
+  m_TagString: Cleaver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,8 @@ MonoBehaviour:
   moveSpeed: 100
   miss: {fileID: 8300000, guid: 132e42dcc3ba48142aa8695de675fe6d, type: 3}
   hit: {fileID: 8300000, guid: 38765aaea8d16d948bfa9ff064d4d667, type: 3}
+  failNumber: 0
+  noteSpeed: 1
 --- !u!65 &54659670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -257,7 +259,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fd73080e0fb658747bbd54188b122d2c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -765,6 +767,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &724976827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 724976829}
+  - component: {fileID: 724976828}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &724976828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724976827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8718df30bb72c7241b21133cd636beb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreVal: 0
+  totalScore: 0
+  food: {fileID: 1674034008}
+  speed: 10
+  timer: 0
+--- !u!4 &724976829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724976827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12, y: 2, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &748155269
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +958,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1674034008 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3174411360292946900, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
+    type: 3}
+  m_PrefabInstance: {fileID: 2047208034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2047208034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -919,6 +975,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Food #1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174411360292946896, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3174411360292946900, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
         type: 3}
@@ -978,7 +1039,18 @@ PrefabInstance:
     - target: {fileID: 3174411360292946901, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
         type: 3}
       propertyPath: scoreVal
-      value: 100
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174411360292946901, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
+        type: 3}
+      propertyPath: food
+      value: 
+      objectReference: {fileID: 3174411360292946900, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
+        type: 3}
+    - target: {fileID: 3174411360292946901, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12, type: 3}
