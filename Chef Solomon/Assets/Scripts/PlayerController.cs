@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private GameManager gameManager;
+    private float time;
 
     public float sliceSpeed;
     public float moveSpeed;
@@ -23,24 +24,28 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRB;
 
     private GameObject food;
+    private GameObject pivot;
 
     private Vector3 originalPos;
 
     private void Awake()
     {
         playerRB = GetComponent<Rigidbody>();
+
         food = GameObject.FindGameObjectWithTag("Food");
 
         foodController = GameObject.FindGameObjectWithTag("Food").GetComponent<FoodController>();
         foodValue = foodController.scoreVal;
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        pivot = GameObject.Find("Pivot Point");
     }
     // Start is called before the first frame update
     void Start()
     {
-        //sliceSpeed = 200f;
-        //moveSpeed = 50f;
+        sliceSpeed = 400f;
+        moveSpeed = 50f;
         hasSliced = false;
         hasPressed = false;
         originalPos = transform.position;
@@ -60,6 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(Vector3.down * sliceSpeed);
             //transform.Translate(Vector3.down * sliceSpeed * Time.deltaTime);
+
             hasSliced = true;
             hasPressed = true;
         }
@@ -103,7 +109,7 @@ public class PlayerController : MonoBehaviour
             audioSource.PlayOneShot(hit);
             audioSource.pitch = audioSource.pitch + 0.1f;
             food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
-            Debug.Log("You hit the mark!!");
+            //Debug.Log("You hit the mark!!");
             gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
         }
     }
