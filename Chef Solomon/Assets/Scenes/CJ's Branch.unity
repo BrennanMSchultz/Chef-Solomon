@@ -259,7 +259,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
+<<<<<<< HEAD
   m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
+=======
+  m_audioClip: {fileID: 8300000, guid: 0610b7ddb4a14324cb9e830e2191c43e, type: 3}
+>>>>>>> Jake-test-branch
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

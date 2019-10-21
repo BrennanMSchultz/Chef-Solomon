@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Chef Solomon/Assets/Audio/Chef Solomon Test.wav.meta
 guid: fd73080e0fb658747bbd54188b122d2c
+=======
+guid: 0610b7ddb4a14324cb9e830e2191c43e
+>>>>>>> Jake-test-branch:Chef Solomon/Assets/Audio/Chef Solomon Theme.wav.meta
 AudioImporter:
   externalObjects: {}
   serializedVersion: 6
