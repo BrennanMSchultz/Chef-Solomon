@@ -271,6 +271,7 @@ AudioSource:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
 =======
   m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
@@ -308,6 +309,9 @@ AudioSource:
 =======
   m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
 >>>>>>> parent of ea8d561... Music Update
+=======
+  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
+>>>>>>> parent of 2fb8db0... Revert "Revert "Music Update""
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
