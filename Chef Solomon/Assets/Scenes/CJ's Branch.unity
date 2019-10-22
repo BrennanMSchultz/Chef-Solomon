@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d32c9166544198f4fb9733a64440a997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   sliceSpeed: 1700
   moveSpeed: 100
   miss: {fileID: 8300000, guid: 132e42dcc3ba48142aa8695de675fe6d, type: 3}
@@ -259,67 +259,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
-=======
-  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
->>>>>>> parent of b5d06a7... Music
-=======
-  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
->>>>>>> parent of ea8d561... Music Update
-=======
-  m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
->>>>>>> parent of 6bc0634... Revert "Music Update"
-=======
-  m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
->>>>>>> parent of 6bc0634... Revert "Music Update"
-=======
-  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
->>>>>>> parent of d7194ba... Revert "Revert "Music Update""
-=======
-  m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
->>>>>>> parent of 6bc0634... Revert "Music Update"
-=======
-  m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
->>>>>>> parent of 6bc0634... Revert "Music Update"
-=======
-  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
->>>>>>> parent of ea8d561... Music Update
-=======
-  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
->>>>>>> parent of ea8d561... Music Update
-=======
-  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
->>>>>>> parent of ea8d561... Music Update
-=======
-  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
->>>>>>> parent of ea8d561... Music Update
-=======
-  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
->>>>>>> parent of ea8d561... Music Update
-=======
-  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
->>>>>>> parent of 2fb8db0... Revert "Revert "Music Update""
-=======
-  m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
->>>>>>> parent of 0c9d182... Revert "Music Update"
-=======
-  m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
->>>>>>> parent of 0c9d182... Revert "Music Update"
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -452,8 +392,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -607,8 +547,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1011,8 +951,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8718df30bb72c7241b21133cd636beb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   scoreVal: 0
   totalScore: 0
   food: {fileID: 1674034008}
@@ -1061,8 +1001,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
@@ -1078,8 +1018,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
@@ -1252,8 +1192,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43a3bd65302bf5642a64d5229fcad545, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   scoreText: {fileID: 99891130}
 --- !u!4 &1068708729
 Transform:
@@ -1396,8 +1336,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1755,7 +1695,7 @@ PrefabInstance:
     - target: {fileID: 3174411360292946901, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
         type: 3}
       propertyPath: food
-      value: 
+      value:
       objectReference: {fileID: 3174411360292946900, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
         type: 3}
     - target: {fileID: 3174411360292946901, guid: 7a1ee3e837b8b9c4480115e1dc3a2d12,
@@ -1798,8 +1738,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1817,8 +1757,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
