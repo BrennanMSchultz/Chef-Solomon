@@ -1,17 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Chef Solomon/Assets/Audio/Chef Solomon Test.wav.meta
-<<<<<<< HEAD:Chef Solomon/Assets/Audio/Chef Solomon Test.wav.meta
-<<<<<<< HEAD:Chef Solomon/Assets/Audio/Chef Solomon Theme.wav.meta
-guid: 6ffd1bc67be3b674ebf8b040dc46e879
-=======
 guid: fd73080e0fb658747bbd54188b122d2c
->>>>>>> parent of b5d06a7... Music:Chef Solomon/Assets/Audio/Chef Solomon Test.wav.meta
-=======
-guid: fd73080e0fb658747bbd54188b122d2c
->>>>>>> parent of dd6b9cb... Revert "Revert "Music Update"":Chef Solomon/Assets/Audio/Chef Solomon Test.wav.meta
-=======
-guid: fd73080e0fb658747bbd54188b122d2c
->>>>>>> parent of ea8d561... Music Update:Chef Solomon/Assets/Audio/Chef Solomon Test.wav.meta
 AudioImporter:
   externalObjects: {}
   serializedVersion: 6
