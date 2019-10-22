@@ -263,6 +263,7 @@ AudioSource:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
 =======
   m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
@@ -276,6 +277,9 @@ AudioSource:
 =======
   m_audioClip: {fileID: 8300000, guid: 6ffd1bc67be3b674ebf8b040dc46e879, type: 3}
 >>>>>>> parent of 6bc0634... Revert "Music Update"
+=======
+  m_audioClip: {fileID: 8300000, guid: 45a40e9f1793d1f4285aef54998280cc, type: 3}
+>>>>>>> parent of d7194ba... Revert "Revert "Music Update""
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -395,7 +399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 6.5, y: -5.3900146}
+  m_AnchoredPosition: {x: 6.5, y: -5.39}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &99891130
