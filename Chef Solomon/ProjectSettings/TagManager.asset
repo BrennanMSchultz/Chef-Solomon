@@ -7,6 +7,7 @@ TagManager:
   - Table
   - Food
   - Cleaver
+  - Cleaver 2
   layers:
   - Default
   - TransparentFX

@@ -55,7 +55,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Slice();
+        LeftSlice();
+        RightSlice();
         StopAtOriginalPosition();
 
         if (failNumber == 3)
@@ -64,9 +65,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Slice()
+    public void LeftSlice()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !hasPressed)
+        if (Input.GetKeyDown(KeyCode.F) && !hasPressed && this.CompareTag("Cleaver"))
         {
             playerRB.AddForce(Vector3.down * sliceSpeed);
             //transform.Translate(Vector3.down * sliceSpeed * Time.deltaTime);
@@ -74,6 +75,17 @@ public class PlayerController : MonoBehaviour
             hasPressed = true;
         }
     }
+
+    public void RightSlice()
+    {
+        if(Input.GetKeyDown(KeyCode.J) && !hasPressed && this.CompareTag("Cleaver 2"))
+        {
+            playerRB.AddForce(Vector3.down * sliceSpeed);
+            hasSliced = true;
+            hasPressed = true;
+        }
+    }
+
     public void ReturnToPosition()
     {
         if (hasSliced)
@@ -81,17 +93,17 @@ public class PlayerController : MonoBehaviour
             playerRB.AddForce(originalPos * moveSpeed);
             //playerRB.MovePosition(originalPos);
             //playerRB.transform.Translate(originalPos);
-            playerRB.velocity = Vector3.zero;
-            hasPressed = false;
+            //playerRB.velocity = Vector3.zero;
+            //hasPressed = false;
         }
     }
 
     public void StopAtOriginalPosition()
     {
-        if (playerRB.position.y >= 5)
+        if (playerRB.position.y >= originalPos.y)
         {
             playerRB.velocity = Vector3.zero;
-            //Debug.Log("Has made it to original position");
+            hasPressed = false;
         }
     }
 
@@ -102,16 +114,17 @@ public class PlayerController : MonoBehaviour
             audioSource.PlayOneShot(miss);
             audioSource.pitch -= 0.1f;
             ReturnToPosition();
-            failNumber ++;
+            failNumber++;
             noteSpeed -= 0.1f;
             foodValue = foodController.totalScore;
             gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
+            Debug.Log("Total Number of Fails is: " + failNumber);
         }
     }
 
     private void OnTriggerEnter(Collider c)
     {
-        if(c.gameObject.CompareTag("Food"))
+        if (c.gameObject.CompareTag("Food"))
         {
             ReturnToPosition();
             failNumber = 0;
