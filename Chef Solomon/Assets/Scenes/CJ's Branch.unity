@@ -158,6 +158,10 @@ MonoBehaviour:
   moveSpeed: 100
   miss: {fileID: 8300000, guid: 132e42dcc3ba48142aa8695de675fe6d, type: 3}
   chop: {fileID: 8300000, guid: 38765aaea8d16d948bfa9ff064d4d667, type: 3}
+  rightHand: {fileID: 1380565436}
+  handHeld: {fileID: 21300000, guid: 01cec92e70deb98459415b90f63e4c94, type: 3}
+  handChopping: {fileID: 21300000, guid: eab4aeddc7b94ad49859a8741eb33e55, type: 3}
+  handChopped: {fileID: 21300000, guid: 8863836eca9c2e64daf279b0cf7ce483, type: 3}
   failNumber: 0
   noteSpeed: 1
   target: {fileID: 0}
@@ -1251,8 +1255,8 @@ GameObject:
   - component: {fileID: 1380565438}
   - component: {fileID: 1380565437}
   m_Layer: 0
-  m_Name: King Solomon Hand
-  m_TagString: Untagged
+  m_Name: King Solomon Right Hand
+  m_TagString: Right Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -8,6 +8,7 @@ TagManager:
   - Table
   - Food
   - Target
+  - Right Hand
   layers:
   - Default
   - TransparentFX

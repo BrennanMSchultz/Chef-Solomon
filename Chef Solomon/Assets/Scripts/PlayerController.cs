@@ -21,6 +21,12 @@ public class PlayerController : MonoBehaviour
     public AudioClip chop;
     AudioSource audioSource;
 
+    public GameObject rightHand;
+
+    public Sprite handHeld;
+    public Sprite handChopping;
+    public Sprite handChopped;
+
     private Rigidbody playerRB;
 
     private GameObject food;
@@ -54,6 +60,7 @@ public class PlayerController : MonoBehaviour
         hasPressed = false;
         originalPos = transform.position;
         audioSource = GetComponent<AudioSource>();
+        rightHand = GameObject.FindGameObjectWithTag("Right Hand");
     }
 
     // Update is called once per frame
