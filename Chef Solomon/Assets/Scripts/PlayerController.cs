@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool hasPressed;
 
     public AudioClip miss;
-    public AudioClip chop;
+    public AudioClip hit;
     AudioSource audioSource;
 
     private Rigidbody playerRB;
@@ -31,14 +31,10 @@ public class PlayerController : MonoBehaviour
 
     public float noteSpeed = 1f;
 
-    public RaycastHit hit;
-    public Transform target;
-
     private void Awake()
     {
         playerRB = GetComponent<Rigidbody>();
         food = GameObject.FindGameObjectWithTag("Food");
-        target = GameObject.FindGameObjectWithTag("Target").GetComponent<Transform>();
 
         foodController = GameObject.FindGameObjectWithTag("Food").GetComponent<FoodController>();
         foodValue = foodController.totalScore;
@@ -60,7 +56,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Slice();
-        //StopAtOriginalPosition();
+        StopAtOriginalPosition();
 
         if (failNumber == 3)
         {
@@ -72,124 +68,61 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !hasPressed)
         {
-            if (Physics.Linecast(transform.position, target.position))
-            {
-                print("hit");
-                //ReturnToPosition();
-                failNumber = 0;
-                noteSpeed += 0.1f;
-                audioSource.PlayOneShot(chop);
-                audioSource.pitch += 0.1f;
-                food = GameObject.FindGameObjectWithTag("Food");
-                food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
-                //Debug.Log("You hit the mark!!");
-                foodValue = foodController.totalScore;
-                gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
-            }
-            else
-            {
-                print("miss");
-                audioSource.PlayOneShot(miss);
-                audioSource.pitch -= 0.1f;
-                //ReturnToPosition();
-                failNumber++;
-                noteSpeed -= 0.1f;
-                foodValue = foodController.totalScore;
-                gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
-            }
-
-            /*
-                        RaycastHit hit = Physics.Raycast(transform.position, -Vector2.up, 500f);
-                        if (hit.collider.tag == "Food")
-                        {
-                            ReturnToPosition();
-                            failNumber = 0;
-                            noteSpeed += 0.1f;
-                            audioSource.PlayOneShot(chop);
-                            audioSource.pitch += 0.1f;
-                            food = GameObject.FindGameObjectWithTag("Food");
-                            food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
-                            //Debug.Log("You hit the mark!!");
-                            foodValue = foodController.totalScore;
-                            gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
-                        }
-                        if (hit.collider.tag == null)
-                        {
-                            audioSource.PlayOneShot(miss);
-                            audioSource.pitch -= 0.1f;
-                            ReturnToPosition();
-                            failNumber++;
-                            noteSpeed -= 0.1f;
-                            foodValue = foodController.totalScore;
-                            gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
-                        }
-                        playerRB.AddForce(Vector3.down * sliceSpeed);
-                        //transform.Translate(Vector3.down * sliceSpeed * Time.deltaTime);
-                        hasSliced = true;
-                        hasPressed = true;
-                    }
-            */
-
+            playerRB.AddForce(Vector3.down * sliceSpeed);
+            //transform.Translate(Vector3.down * sliceSpeed * Time.deltaTime);
+            hasSliced = true;
+            hasPressed = true;
         }
-
-        /*
-            public void ReturnToPosition()
-            {
-                if (hasSliced)
-                {
-                    playerRB.AddForce(originalPos * moveSpeed);
-                    //playerRB.MovePosition(originalPos);
-                    //playerRB.transform.Translate(originalPos);
-                    playerRB.velocity = Vector3.zero;
-                    hasPressed = false;
-                }
-            }
-        */
-
-        /*
-            public void StopAtOriginalPosition()
-            {
-                if (playerRB.position.y >= 5)
-                {
-                    playerRB.velocity = Vector3.zero;
-                    //Debug.Log("Has made it to original position");
-                }
-            }
-        */
-
-        /*
-        private void OnCollisionEnter(Collision c)
+    }
+    public void ReturnToPosition()
+    {
+        if (hasSliced)
         {
-            if (c.gameObject.CompareTag("Table"))
-            {
-                audioSource.PlayOneShot(miss);
-                audioSource.pitch -= 0.1f;
-                ReturnToPosition();
-                failNumber ++;
-                noteSpeed -= 0.1f;
-                foodValue = foodController.totalScore;
-                gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
-            }
+            playerRB.AddForce(originalPos * moveSpeed);
+            //playerRB.MovePosition(originalPos);
+            //playerRB.transform.Translate(originalPos);
+            playerRB.velocity = Vector3.zero;
+            hasPressed = false;
         }
-        */
+    }
 
-        /*
-            private void OnTriggerEnter(Collider c)
-            {
-                if(c.gameObject.CompareTag("Food"))
-                {
-                    ReturnToPosition();
-                    failNumber = 0;
-                    noteSpeed += 0.1f;
-                    audioSource.PlayOneShot(hit);
-                    audioSource.pitch += 0.1f;
-                    food = GameObject.FindGameObjectWithTag("Food");
-                    food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
-                    //Debug.Log("You hit the mark!!");
-                    foodValue = foodController.totalScore;
-                    gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
-                }
-            }
-        */
+    public void StopAtOriginalPosition()
+    {
+        if (playerRB.position.y >= 5)
+        {
+            playerRB.velocity = Vector3.zero;
+            //Debug.Log("Has made it to original position");
+        }
+    }
+
+    private void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.CompareTag("Table"))
+        {
+            audioSource.PlayOneShot(miss);
+            audioSource.pitch -= 0.1f;
+            ReturnToPosition();
+            failNumber ++;
+            noteSpeed -= 0.1f;
+            foodValue = foodController.totalScore;
+            gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
+        }
+    }
+
+    private void OnTriggerEnter(Collider c)
+    {
+        if(c.gameObject.CompareTag("Food"))
+        {
+            ReturnToPosition();
+            failNumber = 0;
+            noteSpeed += 0.1f;
+            audioSource.PlayOneShot(hit);
+            audioSource.pitch += 0.1f;
+            food = GameObject.FindGameObjectWithTag("Food");
+            food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
+            //Debug.Log("You hit the mark!!");
+            foodValue = foodController.totalScore;
+            gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
+        }
     }
 }

@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Cleaver
-  - Table
-  - Food
-  - Target
+  tags: []
   layers:
   - Default
   - TransparentFX
