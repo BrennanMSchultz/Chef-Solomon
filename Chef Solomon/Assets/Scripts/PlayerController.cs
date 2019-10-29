@@ -20,12 +20,25 @@ public class PlayerController : MonoBehaviour
     public AudioClip miss;
     public AudioClip chop;
     AudioSource audioSource;
-
+    
+    //Hand
     public GameObject rightHand;
 
-    public Sprite handHeld;
-    public Sprite handChopping;
-    public Sprite handChopped;
+    //public Sprite handHeld;
+    //public Sprite handChopping;
+    //public Sprite handChopped;
+
+    //Eyebrows
+    public GameObject eyebrows;
+
+    public Sprite normalEyebrows;
+    public Sprite angryEyebrows;
+
+    //Eyes
+    public GameObject eyes;
+
+    public Sprite normalEyes;
+    public Sprite happyEyes;
 
     private Rigidbody playerRB;
 
@@ -92,6 +105,15 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("You hit the mark!!");
                 foodValue = foodController.totalScore;
                 gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
+
+                if(eyebrows.GetComponent<SpriteRenderer>().sprite == angryEyebrows)
+                {
+                    eyebrows.GetComponent<SpriteRenderer>().sprite = normalEyebrows;
+                }
+                else
+                {
+                    eyes.GetComponent<SpriteRenderer>().sprite = happyEyes;
+                }
             }
             else
             {
@@ -103,6 +125,15 @@ public class PlayerController : MonoBehaviour
                 noteSpeed -= 0.1f;
                 foodValue = foodController.totalScore;
                 gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
+
+                if(eyes.GetComponent<SpriteRenderer>().sprite = happyEyes)
+                {
+                    eyes.GetComponent<SpriteRenderer>().sprite = normalEyes;
+                }
+                else
+                {
+                    eyebrows.GetComponent<SpriteRenderer>().sprite = angryEyebrows;
+                }
             }
 
             /*

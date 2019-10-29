@@ -159,9 +159,12 @@ MonoBehaviour:
   miss: {fileID: 8300000, guid: 132e42dcc3ba48142aa8695de675fe6d, type: 3}
   chop: {fileID: 8300000, guid: 38765aaea8d16d948bfa9ff064d4d667, type: 3}
   rightHand: {fileID: 1380565436}
-  handHeld: {fileID: 21300000, guid: 01cec92e70deb98459415b90f63e4c94, type: 3}
-  handChopping: {fileID: 21300000, guid: eab4aeddc7b94ad49859a8741eb33e55, type: 3}
-  handChopped: {fileID: 21300000, guid: 8863836eca9c2e64daf279b0cf7ce483, type: 3}
+  eyebrows: {fileID: 374611673}
+  normalEyebrows: {fileID: 21300000, guid: 24b2b53b8aca01e44bed5363bd4c1076, type: 3}
+  angryEyebrows: {fileID: 21300000, guid: 1627080445798ba4b8d76dd8af01c2fa, type: 3}
+  eyes: {fileID: 1683586333}
+  normalEyes: {fileID: 21300000, guid: 1df76c068dc8a824dac794cb4a72f37b, type: 3}
+  happyEyes: {fileID: 21300000, guid: 9b6ac69a129f7cf468006d4e2ca6fe1a, type: 3}
   failNumber: 0
   noteSpeed: 1
   target: {fileID: 0}
@@ -811,7 +814,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24b2b53b8aca01e44bed5363bd4c1076, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1627080445798ba4b8d76dd8af01c2fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
