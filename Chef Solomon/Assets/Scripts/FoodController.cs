@@ -12,6 +12,7 @@ public class FoodController : MonoBehaviour
     public float speed = 10f;
     private bool outOfBounds;
     private PlayerController playerController;
+    private CutController cutController;
 
     public bool timer;
 
@@ -20,6 +21,7 @@ public class FoodController : MonoBehaviour
     private void Awake()
     {
         playerController = GameObject.FindGameObjectWithTag("Cleaver").GetComponent<PlayerController>();
+        cutController = GameObject.FindGameObjectWithTag("Target").GetComponent<CutController>();
         if (gameObject.CompareTag("Food"))
         {
             GetComponent<Renderer>().material.color = new Color(1f, 0.4858491f, 0.9789963f);
@@ -45,7 +47,7 @@ public class FoodController : MonoBehaviour
 
     public void Movement()
     {
-        transform.Translate(xMovement * speed * Time.deltaTime * playerController.noteSpeed);
+        transform.Translate(xMovement * speed * Time.deltaTime * cutController.noteSpeed);
     }
 
     public void OutOfBounds()
@@ -71,7 +73,7 @@ public class FoodController : MonoBehaviour
 
     public int SubScore(int scoreVal)
     {
-        scoreVal -= 150;
+        scoreVal -= 120;
         totalScore = scoreVal;
         return totalScore;
     }
