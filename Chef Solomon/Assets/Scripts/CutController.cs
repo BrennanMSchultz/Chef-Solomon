@@ -12,7 +12,7 @@ public class CutController : MonoBehaviour
     private GameManager gameManager;
 
     private FoodController foodController;
-    private float foodValue;
+    public float foodValue;
 
     public AudioClip miss;
     public AudioClip chop;
@@ -53,7 +53,7 @@ public class CutController : MonoBehaviour
     {
         if (failNumber <= 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
         failSlider.value = failNumber;
         Cut();
