@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 originalPos;
 
-    public int failNumber = 0;
+    public int failNumber = 15;
 
     public float noteSpeed = 1f;
 
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         Slice();
         //StopAtOriginalPosition();
 
-        if (failNumber == 3)
+        if (failNumber <= 0)
         {
             SceneManager.LoadScene(0);
         }
@@ -81,28 +81,28 @@ public class PlayerController : MonoBehaviour
         {
             if (Physics.Linecast(transform.position, target.position))
             {
-                print("hit");
+                //print("hit");
                 //ReturnToPosition();
-                failNumber = 0;
-                noteSpeed += 0.1f;
-                audioSource.PlayOneShot(chop);
-                audioSource.pitch += 0.1f;
-                food = GameObject.FindGameObjectWithTag("Food");
-                food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
+                //failNumber = 0;
+               // noteSpeed += 0.1f;
+                //audioSource.PlayOneShot(chop);
+               // audioSource.pitch += 0.1f;
+                //food = GameObject.FindGameObjectWithTag("Food");
+               // food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
                 //Debug.Log("You hit the mark!!");
-                foodValue = foodController.totalScore;
-                gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
+               // foodValue = foodController.totalScore;
+               // gameManager.scoreText.text = "Score: " + foodController.AddScore(foodValue);
             }
             else
             {
-                print("miss");
-                audioSource.PlayOneShot(miss);
-                audioSource.pitch -= 0.1f;
+                //print("miss");
+               // audioSource.PlayOneShot(miss);
+               // audioSource.pitch -= 0.1f;
                 //ReturnToPosition();
-                failNumber++;
-                noteSpeed -= 0.1f;
-                foodValue = foodController.totalScore;
-                gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
+                //failNumber++;
+               // noteSpeed -= 0.1f;
+                //foodValue = foodController.totalScore;
+                //gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
             }
 
             /*

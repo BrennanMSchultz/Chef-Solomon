@@ -7,6 +7,7 @@ public class FoodController : MonoBehaviour
     public int scoreVal;
     public int totalScore;
     public Transform food;
+    public Transform food2;
 
     public float speed = 10f;
     private bool outOfBounds;
@@ -19,7 +20,14 @@ public class FoodController : MonoBehaviour
     private void Awake()
     {
         playerController = GameObject.FindGameObjectWithTag("Cleaver").GetComponent<PlayerController>();
-        GetComponent<Renderer>().material.color = new Color(1f, 0.4858491f, 0.9789963f);
+        if (gameObject.CompareTag("Food"))
+        {
+            GetComponent<Renderer>().material.color = new Color(1f, 0.4858491f, 0.9789963f);
+        }
+        if (gameObject.CompareTag("Food 2"))
+        {
+            GetComponent<Renderer>().material.color = new Color(0f, 0.006470203f, 1f);
+        }       
     }
 
         // Start is called before the first frame update
@@ -42,9 +50,14 @@ public class FoodController : MonoBehaviour
 
     public void OutOfBounds()
     {
-        if (!outOfBounds && transform.position.x > 10)
+        if (!outOfBounds && transform.position.x > 12 && gameObject.CompareTag("Food"))
         {
             Spawn();
+            Destroy(gameObject);
+        }
+        if (!outOfBounds && transform.position.x > 18 && gameObject.CompareTag("Food 2"))
+        {
+            Spawn2();
             Destroy(gameObject);
         }
     }
@@ -66,5 +79,10 @@ public class FoodController : MonoBehaviour
     public void Spawn()
     {
         Instantiate(food, new Vector3(-12, 2, 0), Quaternion.identity);
+    }
+
+    public void Spawn2()
+    {
+        Instantiate(food2, new Vector3(-18, 2, 0), Quaternion.identity);
     }
 }
