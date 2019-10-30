@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class CutController : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class CutController : MonoBehaviour
     private GameManager gameManager;
 
     private FoodController foodController;
-    private int foodValue;
+    private float foodValue;
 
     public AudioClip miss;
     public AudioClip chop;
@@ -22,9 +24,13 @@ public class CutController : MonoBehaviour
     private GameObject food;
     private GameObject food2;
 
-    public int failNumber = 0;
+    public int failNumber = 15;
+    public Slider failSlider;
 
     public float noteSpeed = 1f;
+
+    public ParticleSystem success;
+    public ParticleSystem fail;
 
     private void Awake()
     {
@@ -47,8 +53,9 @@ public class CutController : MonoBehaviour
     {
         if (failNumber <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
+        failSlider.value = failNumber;
         Cut();
         Cut2();
     }
@@ -57,12 +64,21 @@ public class CutController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+            rightHand.transform.Translate(new Vector3(3f, -6f, 0f));
+            StartCoroutine("WaitAndReturnRight");
             if (In == true)
             {
-                failNumber ++;
+                success.Play();
+                if (failNumber <= 20)
+                {
+                    failNumber++;
+                }
                 noteSpeed += 0.1f;
                 audioSource.PlayOneShot(chop);
-                audioSource.pitch += 0.05f;
+                if (audioSource.pitch <= 1.2)
+                {
+                    audioSource.pitch += 0.025f;
+                }
                 food = GameObject.FindGameObjectWithTag("Food");
                 food.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
                 foodValue = foodController.totalScore;
@@ -70,13 +86,18 @@ public class CutController : MonoBehaviour
             }
             else
             {
+                fail.Play();
                 audioSource.PlayOneShot(miss);
-                audioSource.pitch -= 0.05f;
-                failNumber-=2;
+                if (audioSource.pitch >= -0.2)
+                {
+                    audioSource.pitch -= 0.025f;
+                }
+                failNumber -= 2;
                 noteSpeed -= 0.1f;
                 foodValue = foodController.totalScore;
                 gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
             }
+            failSlider.value = failNumber;
         }
     }
 
@@ -112,12 +133,21 @@ public class CutController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
+            leftHand.transform.Translate(new Vector3(3f, -6f, 0f));
+            StartCoroutine("WaitAndReturnLeft");
             if (In2 == true)
             {
-                failNumber ++;
+                success.Play();
+                if (failNumber <= 20)
+                {
+                    failNumber += 2;
+                }
                 noteSpeed += 0.1f;
                 audioSource.PlayOneShot(chop);
-                audioSource.pitch += 0.05f;
+                if (audioSource.pitch <= 1.2)
+                {
+                    audioSource.pitch += 0.025f;
+                }
                 food2 = GameObject.FindGameObjectWithTag("Food 2");
                 food2.GetComponent<Renderer>().material.color = new Color(0f, 1f, 0f);
                 foodValue = foodController.totalScore;
@@ -125,13 +155,31 @@ public class CutController : MonoBehaviour
             }
             else
             {
+                fail.Play();
                 audioSource.PlayOneShot(miss);
-                audioSource.pitch -= 0.05f;
-                failNumber-=2;
+                if (audioSource.pitch >= -0.2)
+                {
+                    audioSource.pitch -= 0.025f;
+                }
+                failNumber -= 3;
                 noteSpeed -= 0.1f;
                 foodValue = foodController.totalScore;
                 gameManager.scoreText.text = "Score: " + foodController.SubScore(foodValue);
             }
+            failSlider.value = failNumber;
         }
+    }
+    IEnumerator WaitAndReturnRight()
+    {
+        // suspend execution for .5 seconds
+        yield return new WaitForSeconds(0.5f);
+        rightHand.transform.Translate(new Vector3(-3f, 6f, 0f));
+    }
+
+    IEnumerator WaitAndReturnLeft()
+    {
+        // suspend execution for .5 seconds
+        yield return new WaitForSeconds(0.5f);
+        leftHand.transform.Translate(new Vector3(-3f, 6f, 0f));
     }
 }

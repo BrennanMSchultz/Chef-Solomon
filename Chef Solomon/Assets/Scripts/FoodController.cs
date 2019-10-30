@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FoodController : MonoBehaviour
 {
-    public int scoreVal;
-    public int totalScore;
+    public float scoreVal;
+    public float totalScore;
     public Transform food;
     public Transform food2;
 
@@ -54,24 +54,46 @@ public class FoodController : MonoBehaviour
     {
         if (!outOfBounds && transform.position.x > 12 && gameObject.CompareTag("Food"))
         {
+            if (GetComponent<Renderer>().material.color == new Color(1f, 0.4858491f, 0.9789963f))
+            {
+                cutController.failNumber--;
+            }
+            else
+            {
+                if (cutController.failNumber <= 15)
+                {
+                    cutController.failNumber+=2;
+                }
+            }
             Spawn();
             Destroy(gameObject);
         }
         if (!outOfBounds && transform.position.x > 18 && gameObject.CompareTag("Food 2"))
         {
+            if (GetComponent<Renderer>().material.color == new Color(0f, 0.006470203f, 1f))
+            {
+                cutController.failNumber--;
+            }
+            else
+            {
+                if (cutController.failNumber <= 15)
+                {
+                    cutController.failNumber+=3;
+                }
+            }
             Spawn2();
             Destroy(gameObject);
         }
     }
 
-    public int AddScore(int scoreVal)
+    public float AddScore(float scoreVal)
     {
-        scoreVal += 100;
+        scoreVal += 100*cutController.noteSpeed;
         totalScore = scoreVal;
         return totalScore;
     }
 
-    public int SubScore(int scoreVal)
+    public float SubScore(float scoreVal)
     {
         scoreVal -= 120;
         totalScore = scoreVal;

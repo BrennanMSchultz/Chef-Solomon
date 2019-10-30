@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
 
     private FoodController foodController;
-    private int foodValue;
+    private float foodValue;
 
     public GameObject rightHand;
     public Sprite handHeld;
